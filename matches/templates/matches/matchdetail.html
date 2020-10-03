@@ -1,0 +1,13 @@
+  
+{% extends 'base.html' %}
+{% block content %}
+<h1>Contact Details</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h3>{{object.op_name}}</h3>
+<p>{{object.op_email}}</p>
+<p>{{object.op_number}}</p>
+
+
+{% endblock %}
