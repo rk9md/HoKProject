@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Post a Match</h1>
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form method="post">
+    <div class="form-group">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Save">
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <div class="container">
+        <h1>Available</h1>
+        {% if matches_list %}
+            <ul class="list-group">
+            {% for match in matches_list %}
+                <li class="list-group-item"><a href="{% url 'matches:matchdetail' match.id %}">{{ match.op_name }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matches are available.</p>
+        {% endif %}
+    </div>
+    <a href="post">Click here to post a new match</a>
+</div>
+{% endblock %}

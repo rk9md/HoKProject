@@ -1,0 +1,10 @@
+  
+{% extends 'base.html' %}
+{% block content %}
+<h1>Match</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h3>{{object.op_name}}</h3>
+<p class="white">{{object.op_email}}</p>
+{% endblock %}
