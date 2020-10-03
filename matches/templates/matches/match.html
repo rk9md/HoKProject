@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Available</h1>
+<div class="card-deck">
+    <div class="container">
+        {% if matches_list %}
+        <div class="card-group">
+        {% for match in matches_list %}
+        <div class="card">
+            <img class="card-img-top" src="{% static 'matches/images/logo.png' %}" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title"><a href="{% url 'matches:matchdetail' match.id %}">{{ match.op_name }}</a></h3>
+              <h5 class="card-title">{{ match.store }}</h5>
+              <p class="card-text">Money Needed: {{ match.money_needed }} <br> Money Spent: {{ match.money_spending }}</p>
+              <p class="card-text"></p>
+              <p class="card-text"><small class="text-muted">Posted {{ match.pub_date }}</small></p>
+            </div>
+        </div>
+        {% endfor %}
+        </div>   
+        {% else %}
+        <p>No matches are available.</p>
+        {% endif %}
+        <!-- {% if matches_list %}
+            <ul class="list-group">
+            {% for match in matches_list %}
+                <li class="list-group-item"><a href="{% url 'matches:matchdetail' match.id %}">{{ match.op_name }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matches are available.</p>
+        {% endif %} -->
+    </div>
+
+    <div class="container my-3 bg-light">
+        <div class="col-md-12 text-center">
+            <a class="btn btn-primary center" href="post" role="button">Make a post!</a>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
